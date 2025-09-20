@@ -1,0 +1,31 @@
+.blocks-section {
+  margin-top: 40px;
+}
+
+.blocks-section h3 {
+  color: #fbbf24;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.blocks-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.blocks-section ul li {
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  background-color: #334155;
+  border-radius: 6px;
+  cursor: grab;
+  color: white;
+  font-size: 0.95rem;
+}
+
+.blocks-section ul li:active {
+  cursor: grabbing;
+}
+
+
+
