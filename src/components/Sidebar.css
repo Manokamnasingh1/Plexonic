@@ -1,31 +1,70 @@
-.blocks-section {
-  margin-top: 40px;
+/* src/components/Sidebar.css */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  background: #f8f9fa;
+  padding: 1rem;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
 }
 
-.blocks-section h3 {
-  color: #fbbf24;
-  font-size: 1rem;
-  margin-bottom: 10px;
+.sidebar.open {
+  transform: translateX(0);
 }
 
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-links,
 .blocks-section ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.blocks-section ul li {
-  padding: 8px 12px;
-  margin-bottom: 8px;
-  background-color: #334155;
-  border-radius: 6px;
-  cursor: grab;
-  color: white;
-  font-size: 0.95rem;
+.sidebar-links li,
+.blocks-section li {
+  margin-bottom: 1rem;
 }
 
-.blocks-section ul li:active {
-  cursor: grabbing;
+.sidebar-links li a {
+  text-decoration: none;
+  color: #333;
 }
+
+.blocks-section h3 {
+  margin-bottom: 0.5rem;
+}
+
+.blocks-section li {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.blocks-section li:hover {
+  background: #e9ecef;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+
+  .sidebar-toggle {
+    display: none;
+  }
+}
+
 
 
 

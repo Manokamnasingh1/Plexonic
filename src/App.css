@@ -6,8 +6,8 @@
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: 1em;
+ 
   will-change: filter;
   transition: filter 300ms;
 }
@@ -39,4 +39,26 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Layout container */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Main content next to sidebar */
+.main-content {
+  flex: 1;
+  margin-left: 250px; /* sidebar width */
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0; /* sidebar will overlay content */
+  }
 }
