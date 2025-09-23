@@ -12,6 +12,9 @@ export default function BlockSettings() {
     for (let b of items) {
       if (b.id === id) return b;
       if (b.children) {
+
+
+        
         const found = findBlock(b.children, id);
         if (found) return found;
       }
@@ -48,41 +51,79 @@ export default function BlockSettings() {
       )}
 
       {/* Image Block */}
-      {/* Image Block */}
+    {/* IMAGE block */}
 {block.type === "image" && (
-  <>
-    <label>Image URL</label>
+  <div style={{ textAlign: "center" }}>
+    {/* File Input */}
     <input
-      type="text"
-      value={block.content || ""}
-      onChange={(e) => updateBlock(block.id, { content: e.target.value })}
+      type="file"
+      accept="image/*"
+      onChange={(e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const imageUrl = URL.createObjectURL(file);
+        updateBlock(block.id, { src: imageUrl });
+      }}
+      style={{ marginBottom: "5px" }}
     />
-    <label>Alt Text</label>
+
+    {/* Alt text input */}
     <input
       type="text"
+      placeholder="Alt text"
       value={block.alt || ""}
       onChange={(e) => updateBlock(block.id, { alt: e.target.value })}
+      style={{ width: "90%", marginBottom: "5px" }}
     />
-    <label>Width</label>
+
+    {/* Optional Link */}
     <input
       type="text"
-      value={block.width || ""}
-      onChange={(e) => updateBlock(block.id, { width: e.target.value })}
-    />
-    <label>Height</label>
-    <input
-      type="text"
-      value={block.height || ""}
-      onChange={(e) => updateBlock(block.id, { height: e.target.value })}
-    />
-    <label>Link (optional)</label>
-    <input
-      type="text"
+      placeholder="Link (optional)"
       value={block.link || ""}
       onChange={(e) => updateBlock(block.id, { link: e.target.value })}
+      style={{ width: "90%", marginBottom: "5px" }}
     />
-  </>
+
+    {/* Width & Height */}
+    <input
+      type="number"
+      placeholder="Width"
+      value={parseInt(block.width) || 200}
+      onChange={(e) => updateBlock(block.id, { width: e.target.value + "px" })}
+      style={{ width: "45%", marginRight: "5%" }}
+    />
+    <input
+      type="number"
+      placeholder="Height"
+      value={parseInt(block.height) || 200}
+      onChange={(e) => updateBlock(block.id, { height: e.target.value + "px" })}
+      style={{ width: "45%" }}
+    />
+
+    {/* Preview Image */}
+    {block.src && (
+      block.link ? (
+        <a href={block.link} target="_blank" rel="noopener noreferrer">
+          <img
+            src={block.src}
+            alt={block.alt || "image"}
+            style={{ width: block.width, height: block.height, display: "block" }}
+          />
+        </a>
+      ) : (
+        <img
+          src={block.src}
+          alt={block.alt || "image"}
+          style={{ width: block.width, height: block.height, display: "block" }}
+        />
+      )
+    )}
+
+    <button onClick={() => deleteBlock(block.id)} style={{ marginTop: "5px" }}>❌ Cut Image</button>
+  </div>
 )}
+
 
 
       {/* Button Block */}

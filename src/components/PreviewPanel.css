@@ -1,0 +1,52 @@
+.preview-panel {
+  flex: 1;
+  min-height: 80vh;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+.preview-block {
+  margin-bottom: 10px;
+}
+
+.preview-image {
+  display: block;
+}
+
+.preview-text {
+  font-size: 16px;
+  color: #000;
+  text-align: left;
+  background-color: #fff;
+  padding: 5px;
+  margin: 0px;
+  white-space: pre-wrap;
+}
+
+.preview-button {
+  padding: 8px 16px;
+  margin: 5px 0;
+}
+
+.preview-list li {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.preview-form input,
+.preview-form textarea {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.preview-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.preview-card p {
+  margin: 0 0 5px 0;
+}
