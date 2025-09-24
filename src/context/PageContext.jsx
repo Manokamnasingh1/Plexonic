@@ -21,9 +21,12 @@ export const PageProvider = ({ children }) => {
 
   // Update block
   const updateBlock = (id, newProps) => {
-    saveHistory();
-    setBlocks(blocks.map(b => (b.id === id ? { ...b, ...newProps } : b)));
-  };
+  saveHistory();
+  setBlocks((prevBlocks) =>
+    prevBlocks.map((b) => (b.id === id ? { ...b, ...newProps } : b))
+  );
+};
+
 
   // Delete block
   const deleteBlock = (id) => {
@@ -84,8 +87,6 @@ const addImage = (img) => {
     </PageContext.Provider>
   );
 };
-
-
 
 
 

@@ -1,11 +1,63 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { PageContext } from "../context/PageContext";
 import Canvas from "../components/Canvas";
-import ImageSettings from "../components/ImageSettings";
 import PreviewPanel from "../components/PreviewPanel";
 
-export default function Editor() {
-  const { addBlock, addImage, undo, redo } = useContext(PageContext);
+export default function Editor({ pageId }) {
+  const { blocks, addBlock, undo, redo } = useContext(PageContext);
+  const [title, setTitle] = useState("");
+  const [saving, setSaving] = useState(false);
+
+  // Load existing page if editing
+  useEffect(() => {
+    const loadPage = async () => {
+      if (!pageId) return;
+      try {
+        const token = localStorage.getItem("token");
+        const res = await fetch(`http://localhost:5000/api/pages/${pageId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const data = await res.json();
+        setTitle(data.title || "");
+        // You might need a setBlocks function in your PageContext
+        // to set blocks loaded from backend
+      } catch (err) {
+        console.error(err);
+        alert("Failed to load page");
+      }
+    };
+    loadPage();
+  }, [pageId]);
+
+ const handleSave = async () => {
+  setSaving(true);
+  try {
+    const token = localStorage.getItem("token");
+    const res = await fetch("http://localhost:5000/api/pages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ title, blocks, pageId }),
+    });
+
+    const data = await res.json();
+    alert("Page saved successfully!");
+    console.log(data);
+
+    // ---- ADD PUBLIC LINK HERE ----
+    const publicLink = `${window.location.origin}/page/${data._id}`;
+    alert(`Public link: ${publicLink}`);
+    console.log("Public link:", publicLink);
+
+  } catch (err) {
+    console.error(err);
+    alert("Error saving page");
+  }
+  setSaving(false);
+};
+
 
   return (
     <div style={{ display: "flex", gap: "20px" }}>
@@ -14,21 +66,21 @@ export default function Editor() {
 
       {/* Sidebar */}
       <div style={{ width: "250px" }}>
-        <h4>Blocks</h4>
-        <button onClick={() => addBlock({ type: "text", content: "New text" })}>
-          Add Text
-        </button>
-        <button onClick={() => addBlock({ type: "button", content: "Click Me" })}>
-          Add Button
-        </button>
-        <button onClick={() => addBlock({ type: "list", items: ["Item 1", "Item 2"] })}>
-          Add List
-        </button>
-        <button onClick={() => addBlock({ type: "form" })}>Add Form</button>
-
-        {/* Images */}
-        <h4 style={{ marginTop: "20px" }}>Images</h4>
-        <ImageSettings addImage={addImage} />
+        
+        <h3>To save</h3>
+        {/* Save Button */}
+        <div style={{ marginTop: "20px" }}>
+          <input
+            type="text"
+            placeholder="Page Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            style={{ width: "100%", marginBottom: "10px", padding: "5px" }}
+          />
+          <button onClick={handleSave} disabled={saving}>
+            {saving ? "Saving..." : "Save Page"}
+          </button>
+        </div>
 
         {/* History */}
         <h4 style={{ marginTop: "20px" }}>History</h4>
@@ -44,4 +96,5 @@ export default function Editor() {
     </div>
   );
 }
+
 

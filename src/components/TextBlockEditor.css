@@ -1,0 +1,83 @@
+.text-block-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;                 /* tighter spacing */
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9fafb;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 12px;
+  box-sizing: border-box;   /* ✅ important */
+  max-width: 100%;          /* stay inside parent */
+}
+
+.text-block-editor textarea {
+  width: 100%;              /* ✅ full but not overflow */
+  min-height: 60px;
+  padding: 6px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  resize: vertical;
+  transition: border 0.2s ease;
+  box-sizing: border-box;   /* ✅ include padding in width */
+}
+
+.text-block-editor textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.15);
+}
+
+.text-block-editor .controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 6px;
+  width: 100%;              /* ✅ keep inside parent */
+  box-sizing: border-box;
+}
+
+.text-block-editor label {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+}
+
+.text-block-editor input,
+.text-block-editor select {
+  margin-top: 2px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  font-size: 12px;
+  outline: none;
+  transition: border 0.2s ease;
+  width: 100%;              /* ✅ fit inside grid cell */
+  box-sizing: border-box;
+}
+
+.text-block-editor input:focus,
+.text-block-editor select:focus {
+  border-color: #007bff;
+}
+
+.text-block-editor button {
+  align-self: flex-start;
+  background: #ff4d4f;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s ease;
+}
+
+.text-block-editor button:hover {
+  background: #d9363e;
+}
+

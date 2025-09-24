@@ -1,39 +1,22 @@
 import React, { useContext } from "react";
 import { PageContext } from "../context/PageContext";
+import "./PreviewPanel.css";
 
 export default function PreviewPanel() {
   const { blocks } = useContext(PageContext);
 
   return (
-    <div
-      style={{
-        flex: 1,
-        minHeight: "80vh",
-        border: "2px solid #ccc",
-        borderRadius: "8px",
-        padding: "20px",
-        overflowY: "auto",
-        backgroundColor: "#f9f9f9"
-      }}
-    >
-      {blocks.map(block => (
-        <div key={block.id} style={{ marginBottom: "10px" }}>
+    <div className="preview-panel">
+      {blocks.map((block) => (
+        <div key={block.id} className="preview-block">
           {/* IMAGE */}
           {block.type === "image" && block.src && (
             block.link ? (
               <a href={block.link} target="_blank" rel="noopener noreferrer">
-                <img
-                  src={block.src}
-                  alt={block.alt || "image"}
-                  style={{ width: block.width || "200px", height: block.height || "auto" }}
-                />
+                <img src={block.src} alt={block.alt || "image"} />
               </a>
             ) : (
-              <img
-                src={block.src}
-                alt={block.alt || "image"}
-                style={{ width: block.width || "200px", height: block.height || "auto" }}
-              />
+              <img src={block.src} alt={block.alt || "image"} />
             )
           )}
 
@@ -47,7 +30,6 @@ export default function PreviewPanel() {
                 backgroundColor: block.backgroundColor || "#fff",
                 padding: block.padding || "5px",
                 margin: block.margin || "0px",
-                whiteSpace: "pre-wrap"
               }}
             >
               {block.content || "Text block"}
@@ -56,15 +38,15 @@ export default function PreviewPanel() {
 
           {/* BUTTON */}
           {block.type === "button" && (
-            <button style={{ padding: "8px 16px", margin: "5px 0" }}>
-              {block.content || "Button"}
-            </button>
+            <button>{block.content || "Button"}</button>
           )}
 
           {/* LIST */}
           {block.type === "list" && (
             <ul>
-              {(block.items || []).map((item, i) => <li key={i}>{item}</li>)}
+              {(block.items || []).map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
             </ul>
           )}
 
@@ -73,9 +55,9 @@ export default function PreviewPanel() {
             <form>
               {(block.fields || []).map((field, i) =>
                 field.type === "input" ? (
-                  <input key={i} placeholder={field.label} style={{ display: "block", marginBottom: "5px" }} />
+                  <input key={i} placeholder={field.label} />
                 ) : (
-                  <textarea key={i} placeholder={field.label} style={{ display: "block", marginBottom: "5px" }} />
+                  <textarea key={i} placeholder={field.label} />
                 )
               )}
               <button type="submit">Submit</button>
@@ -87,9 +69,9 @@ export default function PreviewPanel() {
 
           {/* CARD */}
           {block.type === "card" && (
-            <div style={{ border: "1px solid #ccc", padding: "10px" }}>
-              <p>{block.title || "Card Title"}</p>
-              <p>{block.content || "Card Content"}</p>
+            <div className="card">
+              <p className="card-title">{block.title || "Card Title"}</p>
+              <p className="card-content">{block.content || "Card Content"}</p>
             </div>
           )}
         </div>
@@ -97,3 +79,4 @@ export default function PreviewPanel() {
     </div>
   );
 }
+

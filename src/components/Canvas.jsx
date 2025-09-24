@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { PageContext } from "../context/PageContext";
-
+import TextBlockEditor from "./TextBlockEditor";
+import "./canvas.css";
 export default function Canvas() {
   const { blocks, selectedBlockId, setSelectedBlockId, updateBlock, deleteBlock } = useContext(PageContext);
 
@@ -75,100 +76,75 @@ export default function Canvas() {
           }}
           onClick={() => setSelectedBlockId(block.id)}
         >
-          {/* IMAGE block */}
-          {block.type === "image" && (
-            <div style={{ textAlign: "center" }}>
-              {/* File Input */}
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => {
-                  const file = e.target.files[0];
-                  if (!file) return;
-                  const imageUrl = URL.createObjectURL(file);
-                  updateBlock(block.id, { src: imageUrl });
-                }}
-                style={{ marginBottom: "5px" }}
-              />
-
-              {/* Alt text */}
-              <input
-                type="text"
-                placeholder="Alt text"
-                value={block.alt || ""}
-                onChange={(e) => updateBlock(block.id, { alt: e.target.value })}
-                style={{ width: "90%", marginBottom: "5px" }}
-              />
-
-              {/* Optional Link */}
-              <input
-                type="text"
-                placeholder="Link (optional)"
-                value={block.link || ""}
-                onChange={(e) => updateBlock(block.id, { link: e.target.value })}
-                style={{ width: "90%", marginBottom: "5px" }}
-              />
-
-              {/* Width & Height */}
-              <input
-                type="number"
-                placeholder="Width"
-                value={parseInt(block.width) || 200}
-                onChange={(e) => updateBlock(block.id, { width: e.target.value + "px" })}
-                style={{ width: "45%", marginRight: "5%" }}
-              />
-              <input
-                type="number"
-                placeholder="Height"
-                value={parseInt(block.height) || 200}
-                onChange={(e) => updateBlock(block.id, { height: e.target.value + "px" })}
-                style={{ width: "45%" }}
-              />
-
-              {/* Preview Image */}
-              {block.src && (
-                block.link ? (
-                  <a href={block.link} target="_blank" rel="noopener noreferrer">
-                    <img
-                      src={block.src}
-                      alt={block.alt || "image"}
-                      style={{ width: block.width, height: block.height, display: "block", marginTop: "5px" }}
-                    />
-                  </a>
-                ) : (
-                  <img
-                    src={block.src}
-                    alt={block.alt || "image"}
-                    style={{ width: block.width, height: block.height, display: "block", marginTop: "5px" }}
-                  />
-                )
-              )}
-
-              <button onClick={() => deleteBlock(block.id)} style={{ marginTop: "5px" }}>❌ Cut Image</button>
-            </div>
-          )}
-
           {/* TEXT block */}
-          {block.type === "text" && (
-            <>
-              <textarea
-                value={block.content || ""}
-                style={{
-                  width: "100%",
-                  fontSize: block.fontSize || "16px",
-                  color: block.color || "#000",
-                  backgroundColor: block.backgroundColor || "#fff",
-                  textAlign: block.textAlign || "left",
-                  padding: block.padding || "5px",
-                  margin: block.margin || "0px",
-                  resize: "vertical"
-                }}
-                onChange={(e) => updateBlock(block.id, { content: e.target.value })}
-              />
-              <button onClick={() => deleteBlock(block.id)}>❌ Cut Text</button>
-            </>
-          )}
+         {block.type === "text" && (
+  <TextBlockEditor
+    block={block}
+    updateBlock={updateBlock}
+    deleteBlock={deleteBlock}
+  />
+)}
 
+          {/* IMAGE block */}
+{block.type === "image" && (
+  <div className="image-block">
+    <input
+      type="file"
+      accept="image/*"
+      onChange={(e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const imageUrl = URL.createObjectURL(file);
+        updateBlock(block.id, { src: imageUrl });
+      }}
+      className="image-input"
+    />
+
+    <div className="dimension-inputs">
+      <input
+        type="number"
+        placeholder="Width"
+        value={parseInt(block.width) || 200}
+        onChange={(e) => updateBlock(block.id, { width: e.target.value + "px" })}
+      />
+      <input
+        type="number"
+        placeholder="Height"
+        value={parseInt(block.height) || 200}
+        onChange={(e) => updateBlock(block.id, { height: e.target.value + "px" })}
+      />
+    </div>
+
+    {block.src && (
+      block.link ? (
+        <a href={block.link} target="_blank" rel="noopener noreferrer">
+          <img
+            src={block.src}
+            alt={block.alt || "image"}
+            style={{ width: block.width, height: block.height }}
+            className="preview-image"
+          />
+        </a>
+      ) : (
+        <img
+          src={block.src}
+          alt={block.alt || "image"}
+          style={{ width: block.width, height: block.height }}
+          className="preview-image"
+        />
+      )
+    )}
+
+    <button
+      onClick={() => deleteBlock(block.id)}
+      className="delete-btn"
+    >
+      ❌ Cut Image
+    </button>
+  </div>
+)}
+
+          
           {/* BUTTON block */}
           {block.type === "button" && (
             <>
@@ -246,12 +222,12 @@ export default function Canvas() {
               <button onClick={() => deleteBlock(block.id)}>❌ Cut Card</button>
             </div>
           )}
-
         </div>
       ))}
     </div>
   );
 }
+
 
 
 

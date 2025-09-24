@@ -1,3 +1,4 @@
+
 // src/components/Sidebar.jsx
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
@@ -49,14 +50,12 @@ export default function Sidebar() {
           <li>
             <Link to="/editor/new">Editor</Link>
           </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
+          
         </ul>
 
         {/* Blocks section */}
         <div className="blocks-section">
-          <h3>Blocks</h3>
+        
           <ul>
             {blocks.map((block) => (
               <li
@@ -73,11 +72,25 @@ export default function Sidebar() {
             ))}
           </ul>
         </div>
+
+        {/* Sidebar footer: Logout + Profile */}
+        <div className="sidebar-footer">
+          <button
+            className="logout-btn"
+            onClick={() => {
+              localStorage.removeItem("token");
+              window.location.href = "/login";
+            }}
+          >
+            Logout
+          </button>
+
+          
+        </div>
       </div>
     </>
   );
 }
-
 
 
 

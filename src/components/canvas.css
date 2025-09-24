@@ -1,0 +1,55 @@
+.image-block {
+  text-align: center;
+  border: 1px dashed #ccc;
+  border-radius: 6px;
+  padding: 8px;
+  margin: 10px 0;
+  background: #fafafa;
+}
+
+.image-input {
+  display: block;
+  margin: 5px auto 10px auto;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.dimension-inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.dimension-inputs input {
+  width: 48%;
+  padding: 4px;
+  font-size: 13px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+.preview-image {
+  display: block;
+  margin: 8px auto;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  /* ❌ REMOVE max-width/height:auto so React inline styles win */
+}
+
+.delete-btn {
+  margin-top: 5px;
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background: #d93636;
+}
+

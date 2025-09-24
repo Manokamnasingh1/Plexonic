@@ -38,17 +38,8 @@ export default function BlockSettings() {
     >
       <h3 style={{ marginBottom: "10px" }}>Block Settings</h3>
 
-      {/* Text Block */}
-      {block.type === "text" && (
-        <>
-          <label>Text Content</label>
-          <textarea
-            value={block.content || ""}
-            onChange={(e) => updateBlock(block.id, { content: e.target.value })}
-            rows={4}
-          />
-        </>
-      )}
+ {/* Text Block */} {block.type === "text" && ( <> <label>Text Content</label> <textarea value={block.content || ""} onChange={(e) => updateBlock(block.id, { content: e.target.value })} rows={4} /> </> )}
+
 
       {/* Image Block */}
     {/* IMAGE block */}
