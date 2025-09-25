@@ -1,5 +1,4 @@
 # React + Vite
-
 🛠️ Mini Webpage Builder - Frontend
 
 This is the frontend of the Mini Webpage Builder, built using React + Vite.
