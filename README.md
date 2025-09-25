@@ -1,133 +1,104 @@
-# React + Vite
-🛠️ Mini Webpage Builder - Frontend
+# 🛠️ Mini Webpage Builder - Frontend
 
-This is the frontend of the Mini Webpage Builder, built using React + Vite.
-It allows users to drag & drop blocks, edit styles, preview pages in real-time, and collaborate with multiple users.
+[![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Socket.IO](https://img.shields.io/badge/Socket.IO-010101?logo=socket.io&logoColor=white)](https://socket.io/)
 
-🎯 Problem Statement
+This is the **frontend** of the **Mini Webpage Builder**, built using **React + Vite**.  
+It allows users to **drag & drop blocks**, **edit styles**, **preview pages in real-time**, and **collaborate with multiple users**.
+
+---
+
+## 🎯 Problem Statement
 
 Build a basic webpage builder where users can:
 
-Drag & drop blocks (Text, Image, Button, Container, Form, Divider, Card, List).
+- 🧩 Drag & drop blocks (Text, Image, Button, Container, Form, Divider, Card, List)  
+- 💾 Save the page structure in MongoDB  
+- 👀 Preview the saved page in real-time  
+- 🤝 Enable collaborative editing using Socket.IO  
 
-Save the page structure in MongoDB.
+---
 
-Preview the saved page in real-time.
+## 📸 Screenshots
 
-Enable collaborative editing using Socket.IO.
+### Login Form
+![Login Form](https://github.com/user-attachments/assets/1881ea37-f082-4060-85ff-3b2c3ab4bee0)
 
-📸 Screenshots (To Be Added)
+### Signup Form
+![Signup Form](https://github.com/user-attachments/assets/f1406eb9-06fa-4621-903f-3bd222042d1f)
 
-Login Form  <img width="1366" height="768" alt="Screenshot (86)" src="https://github.com/user-attachments/assets/1881ea37-f082-4060-85ff-3b2c3ab4bee0" />
+### Editor Page
+![Editor Page](https://github.com/user-attachments/assets/728980d9-d08d-456e-abd2-03ec189495bf)
 
+### Preview Page
+<!-- Add screenshot here -->
 
-Signup Form   <img width="1366" height="768" alt="Screenshot (87)" src="https://github.com/user-attachments/assets/f1406eb9-06fa-4621-903f-3bd222042d1f" />
+---
 
+## 🔹 Requirements (Frontend Scope)
 
-Editor Page   <img width="1366" height="768" alt="Screenshot (85)" src="https://github.com/user-attachments/assets/728980d9-d08d-456e-abd2-03ec189495bf" />
+### Sidebar with Draggable Blocks
+- **Text:** custom text, heading/paragraph/list, formatting (bold, italic, alignment)  
+- **Image:** URL/upload, size, alignment, alt text  
+- **Button:** label, link, configurable styles (color, size, border-radius)  
+- **Container/Section:** holds other blocks, customizable background, padding, margin  
+- **Form:** input fields, textarea, submit button  
+- **Divider:** horizontal/vertical line, adjustable thickness & style  
+- **Card:** prebuilt layout (image + text + button)  
+- **List:** ordered/unordered, custom bullets/icons  
 
+### Canvas Area
+- Drag & drop positioning  
+- Nested blocks inside containers  
+- Reorder existing blocks  
 
-Preview Page
+### Block Settings Panel
+- Edit block styles (font, colors, alignment, spacing)  
 
+### Preview Panel
+- Live preview of the current page  
+- Save button → persist layout in backend  
+- Option to **Save as Draft** or **Publish**  
 
-🔹 Requirements (Frontend Scope)
-Sidebar with Draggable Blocks
+### Undo/Redo
+- Maintain action history (add, delete, move)  
 
-Text → custom text, heading/paragraph/list, formatting (bold, italic, alignment).
+### Preview Mode
+- Route `/preview/:pageId` → fetch schema & render blocks dynamically  
 
-Image → URL/upload, size, alignment, alt text.
+### Real-time Editing
+- Socket.IO support → multiple users can edit the same page simultaneously  
 
-Button → label, link, configurable styles (color, size, border-radius).
+### Authentication
+- JWT-based Login & Signup system  
 
-Container/Section → holds other blocks, customizable background, padding, margin.
+---
 
-Form → input fields, textarea, submit button.
+## 🚀 Deliverables (Frontend)
 
-Divider → horizontal/vertical line, adjustable thickness & style.
+- **Login Page:** user authentication form  
+- **Signup Page:** new user registration form  
+- **Editor Page:** drag-and-drop builder with preview panel  
+- **Preview Page:** renders saved layout by `pageId`  
 
-Card → prebuilt layout (image + text + button).
+---
 
-List → ordered/unordered, custom bullets/icons.
+## 🛠️ Tech Stack
 
-Canvas Area
+- **React (Vite)** – frontend framework  
+- **React Router DOM** – routing  
+- **Context API** – state management  
+- **Socket.IO Client** – real-time editing  
+- **CSS** – styling  
 
-Drag & drop positioning.
+---
 
-Nested blocks inside containers.
+## ⚙️ Installation & Setup
 
-Reorder existing blocks.
-
-Block Settings Panel
-
-Edit block styles (font, colors, alignment, spacing).
-
-Preview Panel
-
-Live preview of the current page.
-
-Save button → persist layout in backend.
-
-Option to Save as Draft or Publish.
-
-Undo/Redo
-
-Maintain action history (add, delete, move).
-
-Preview Mode
-
-Route /preview/:pageId → fetch schema & render blocks dynamically.
-
-Real-time Editing
-
-Socket.IO support → multiple users can edit the same page simultaneously.
-
-Authentication
-
-JWT-based Login & Signup system.
-
-🚀 Deliverables (Frontend)
-
-Login Page → user authentication form.
-
-Signup Page → new user registration form.
-
-Editor Page → drag-and-drop builder with preview panel.
-
-Preview Page → renders saved layout by pageId.
-
-
-🛠️ Tech Stack
-
-React (Vite) – frontend framework.
-
-React Router DOM – routing.
-
-Context API – state management.
-
-Socket.IO Client – real-time editing.
-
-CSS – styling.
-
-⚙️ Installation & Setup
-
-Clone the repository:
-
+### Clone the repository
+```bash
 git clone <your-repo-link>
 cd frontend
-
-
-Install dependencies:
-
-npm install
-
-
-Run the development server:
-
-npm run dev
-
-
-Open in browser:
-
-http://localhost:5173/
 
 
