@@ -31,13 +31,8 @@ Build a basic webpage builder where users can:
 ### Editor Page
 ![Editor Page](https://github.com/user-attachments/assets/728980d9-d08d-456e-abd2-03ec189495bf)
 <img width="1366" height="768" alt="Screenshot (94)" src="https://github.com/user-attachments/assets/b1b0190b-3244-4cac-beab-f6e982dfb1c1" />
-
-
 ### Preview Page
-<!-- Add screenshot here -->
-
----
-
+<img width="1366" height="768" alt="Screenshot (97)" src="https://github.com/user-attachments/assets/cb2f1b2a-9249-42a3-a5b4-34bcf6bd73f5" />
 ## 🔹 Requirements (Frontend Scope)
 
 ### Sidebar with Draggable Blocks
