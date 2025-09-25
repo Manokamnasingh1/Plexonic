@@ -19,11 +19,14 @@ Enable collaborative editing using Socket.IO.
 
 📸 Screenshots (To Be Added)
 
-Login Form  
+Login Form  <img width="1366" height="768" alt="Screenshot (86)" src="https://github.com/user-attachments/assets/1881ea37-f082-4060-85ff-3b2c3ab4bee0" />
 
-Signup Form
 
-Editor Page
+Signup Form   <img width="1366" height="768" alt="Screenshot (87)" src="https://github.com/user-attachments/assets/f1406eb9-06fa-4621-903f-3bd222042d1f" />
+
+
+Editor Page   <img width="1366" height="768" alt="Screenshot (85)" src="https://github.com/user-attachments/assets/728980d9-d08d-456e-abd2-03ec189495bf" />
+
 
 Preview Page
 
