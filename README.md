@@ -129,16 +129,3 @@ Open in browser:
 http://localhost:5173/
 
 
-✅ Evaluation Criteria
-
-Functionality completeness (drag-drop, save, preview).
-
-Clean & modular frontend code.
-
-Effective state management (Context/Redux).
-
-UI responsiveness.
-
-Socket.IO integration for real-time updates.
-
-Authentication flow (Login/Signup).
