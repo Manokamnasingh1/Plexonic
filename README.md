@@ -30,6 +30,8 @@ Build a basic webpage builder where users can:
 
 ### Editor Page
 ![Editor Page](https://github.com/user-attachments/assets/728980d9-d08d-456e-abd2-03ec189495bf)
+<img width="1366" height="768" alt="Screenshot (94)" src="https://github.com/user-attachments/assets/b1b0190b-3244-4cac-beab-f6e982dfb1c1" />
+
 
 ### Preview Page
 <!-- Add screenshot here -->
