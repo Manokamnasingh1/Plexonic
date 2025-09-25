@@ -47,9 +47,9 @@ function App() {
           <Route
             path="/preview"
             element={
-              <ProtectedRoute>
+              
                 <Preview />
-              </ProtectedRoute>
+             
             }
           />
           <Route

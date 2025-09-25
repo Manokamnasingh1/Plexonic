@@ -43,7 +43,7 @@ export default function Sidebar() {
 
       {/* Sidebar panel */}
       <div className={`sidebar ${isOpen ? "open" : ""}`}>
-        <div className="logo">MyWebsite</div>
+        <div className="logo">WebPage Builder</div>
 
         {/* Navigation links */}
         <ul className="sidebar-links">

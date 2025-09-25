@@ -1,0 +1,151 @@
+/* Main Preview Container */
+.preview-container {
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center all child blocks horizontally */
+}
+
+/* Page Title */
+.preview-container h1 {
+  font-size: 28px;
+  color: #212529;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Text Block */
+.preview-container p {
+  font-size: 16px;
+  color: #495057;
+  margin: 10px 0;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  text-align: center;
+}
+
+/* Image Block */
+.preview-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 10px 0;
+  display: block;
+}
+
+/* Button Block */
+.preview-container button {
+  padding: 10px 18px;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 10px 0;
+  transition: background 0.2s;
+  display: block;
+}
+
+/* Card Block */
+.preview-container .card {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #ffffff;
+  margin: 10px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: center; /* center content inside card */
+  width: 90%;
+  max-width: 500px;
+}
+
+/* List Block */
+.preview-container ul,
+.preview-container ol {
+  margin: 10px 0;
+  padding-left: 0;
+  list-style-position: inside;
+  text-align: center;
+}
+
+.preview-container li {
+  margin-bottom: 6px;
+}
+
+/* Form Block */
+.preview-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0;
+  align-items: center; /* center form fields */
+  width: 100%;
+  max-width: 400px;
+}
+
+.preview-container form input,
+.preview-container form textarea {
+  padding: 8px 10px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.preview-container form button {
+  padding: 10px 16px;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.preview-container form button:hover {
+  background-color: #0b5ed7;
+}
+
+/* Responsive Breakpoints */
+
+/* Small devices (mobile) */
+@media (max-width: 576px) {
+  .preview-container h1 {
+    font-size: 24px;
+  }
+
+  .preview-container p {
+    font-size: 14px;
+  }
+
+  .preview-container .card {
+    width: 95%;
+    padding: 12px;
+  }
+
+  .preview-container form {
+    max-width: 90%;
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 577px) and (max-width: 992px) {
+  .preview-container h1 {
+    font-size: 26px;
+  }
+
+  .preview-container p {
+    font-size: 15px;
+  }
+
+  .preview-container .card {
+    max-width: 450px;
+  }
+}
