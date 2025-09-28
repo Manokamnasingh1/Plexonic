@@ -10,7 +10,7 @@ export default function Page() {
   useEffect(() => {
     const fetchPage = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/pages/${pageId}`);
+        const res = await fetch(`https://plexonicbackend-1.onrender.com/api/pages/${pageId}`);
         if (!res.ok) throw new Error("Page not found");
         const data = await res.json();
         setPage(data);
@@ -76,3 +76,4 @@ export default function Page() {
     </div>
   );
 }
+
