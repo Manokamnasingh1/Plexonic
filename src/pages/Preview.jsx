@@ -12,7 +12,7 @@ export default function Preview() {
   useEffect(() => {
     const fetchPage = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/pages/public/${pageId}`);
+        const res = await fetch(`https://plexonicbackend-1.onrender.com/api/pages/public/${pageId}`);
         const data = await res.json();
         setTitle(data.title || "");
         setBlocks(data.blocks || []);
@@ -203,6 +203,7 @@ export default function Preview() {
     </div>
   );
 }
+
 
 
 
