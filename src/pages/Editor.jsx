@@ -18,7 +18,7 @@ export default function Editor({ pageId }) {
       if (!pageId) return;
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch(`http://localhost:5000/api/pages/${pageId}`, {
+        const res = await fetch(`https://plexonicbackend-1.onrender.com/api/pages/${pageId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -38,7 +38,7 @@ export default function Editor({ pageId }) {
     setSaving(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:5000/api/pages", {
+      const res = await fetch("https://plexonicbackend-1.onrender.com/api/pages", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -124,3 +124,4 @@ export default function Editor({ pageId }) {
     </div>
   );
 }
+
