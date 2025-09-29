@@ -7,6 +7,7 @@
   background: #fafafa;
 }
 
+/* File input */
 .image-input {
   display: block;
   margin: 5px auto 10px auto;
@@ -14,6 +15,7 @@
   cursor: pointer;
 }
 
+/* Width / Height inputs */
 .dimension-inputs {
   display: flex;
   justify-content: space-between;
@@ -29,14 +31,19 @@
   border-radius: 4px;
 }
 
+/* ✅ Fixed area for image preview */
 .preview-image {
   display: block;
   margin: 8px auto;
   border-radius: 4px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-  /* ❌ REMOVE max-width/height:auto so React inline styles win */
+
+  max-width: 100%;     /* image never bigger than block */
+  max-height: 300px;   /* fixed preview height */
+  object-fit: contain; /* scale inside box */
 }
 
+/* Delete button */
 .delete-btn {
   margin-top: 5px;
   background: #ff4d4d;
@@ -52,4 +59,9 @@
 .delete-btn:hover {
   background: #d93636;
 }
+.delete-btn:active {
+  background: #b02a2a;
+}
+
+
 
